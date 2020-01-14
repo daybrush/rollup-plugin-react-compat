@@ -1,29 +1,31 @@
-# rollup-plugin-preact
+# rollup-plugin-react-compat
 
-<a href="https://www.npmjs.com/package/rollup-plugin-preact" target="_blank"><img src="https://img.shields.io/npm/v/rollup-plugin-preact.svg?style=flat-square&color=007acc&label=version" alt="npm version" /></a>
+<a href="https://www.npmjs.com/package/rollup-plugin-react-compat" target="_blank"><img src="https://img.shields.io/npm/v/rollup-plugin-react-compat.svg?style=flat-square&color=007acc&label=version" alt="npm version" /></a>
 <img src="https://img.shields.io/badge/language-typescript-blue.svg?style=flat-square"/>
-<a href="https://github.com/daybrush/rollup-plugin-preact/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/daybrush/rollup-plugin-preact.svg?style=flat-square&label=license&color=08CE5D"/></a>
+<a href="https://github.com/daybrush/rollup-plugin-react-compat/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/daybrush/rollup-plugin-react-compat.svg?style=flat-square&label=license&color=08CE5D"/></a>
 
 
 ## 🚀 How to use
 * See Options: https://github.com/rollup/rollup-plugin-node-resolve
 
 ```js
-const preact = require("rollup-plugin-preact");
+const preact = require("rollup-plugin-react-compat");
 
 
 {
-    external: ["preact", "preact-compat", "preact-compat2"],
+    external: ["preact", "preact-compat"],
     plugins: [
         preact({
             ...nodeResolveOptions,
+            useReactCompat: false,
+            usePreactCompat: false,
             usePreactX: false, // usePreactX is auto resolvePreactCompat: true.
             noPropTypes: false,
             noReactIs: false,
             noEnv: false,
             resolvePreactCompat: false,
             aliasModules: {
-                "react-css-styler": "preact-css-styler",
+                "react-css-styled": "preact-css-styled",
             },
         }),
     ],
@@ -32,16 +34,16 @@ const preact = require("rollup-plugin-preact");
 
 ## 👏 Contributing
 
-If you have any questions or requests or want to contribute to `rollup-plugin-preact` or other packages, please write the [issue](https://github.com/daybrush/rollup-plugin-preact/issues) or give me a Pull Request freely.
+If you have any questions or requests or want to contribute to `rollup-plugin-react-compat` or other packages, please write the [issue](https://github.com/daybrush/rollup-plugin-react-compat/issues) or give me a Pull Request freely.
 
 ## 🐞 Bug Report
 
-If you find a bug, please report to us opening a new [Issue](https://github.com/daybrush/rollup-plugin-preact/issues) on GitHub.
+If you find a bug, please report to us opening a new [Issue](https://github.com/daybrush/rollup-plugin-react-compat/issues) on GitHub.
 
 
 ## 📝 License
 
-This project is [MIT](https://github.com/daybrush/rollup-plugin-preact/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/daybrush/rollup-plugin-react-compat/blob/master/LICENSE) licensed.
 
 ```
 MIT License

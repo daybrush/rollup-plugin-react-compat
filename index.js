@@ -7,15 +7,28 @@ function preact(options = {}) {
     const customResolvePlugin = {
         ...resolvePlugin,
         resolveId(importee, importer) {
-            if (
-                importee === "react"
-                || importee === "react-dom"
-            ) {
-                const moduleName = options.usePreactX ? "preact/compat" : "preact-compat";
+            if (options.usePreactCompat) {
+                if (
+                    importee === "react"
+                    || importee === "react-dom"
+                ) {
+                    const moduleName = options.usePreactX ? "preact/compat" : "preact-compat";
 
-                return options.resolvePreactCompat
-                    ? resolvePlugin.resolveId(moduleName, importer)
-                    : moduleName;
+                    return options.resolveCompat
+                        ? resolvePlugin.resolveId(moduleName, importer)
+                        : moduleName;
+                }
+            } else if (options.useReactCompat) {
+                if (
+                    importee === "react"
+                    || importee === "react-dom"
+                ) {
+                    const moduleName = "react-simple-compat";
+
+                    return options.resolveCompat
+                        ? resolvePlugin.resolveId(moduleName, importer)
+                        : moduleName;
+                }
             }
             if (importee === "prop-types" && options.noPropTypes) {
                 return resolvePlugin.resolveId(__dirname + "/compat/prop-types.js", importer);
